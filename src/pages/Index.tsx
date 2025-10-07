@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import Layout from '@/components/layout/Layout';
 import TeamMember, { TeamMemberProps } from '@/components/home/TeamMember';
 import FeatureCard from '@/components/home/FeatureCard';
-import { MessageCircle, User, Users, Bell } from 'lucide-react';
+import { MessageCircle, User, Users, Bell, RefreshCw } from 'lucide-react';
+import { authService } from '@/lib/auth-service';
 
 const teamMembers: TeamMemberProps[] = [
   {
@@ -65,8 +66,36 @@ const features = [
 ];
 
 const Index: React.FC = () => {
+  // Temporary debug function to clear auth state
+  const clearAuthState = () => {
+    authService.logout();
+    window.location.reload();
+  };
+
   return (
     <Layout>
+      {/* Temporary Debug Section - Remove this once authentication is working */}
+      <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
+        <div className="container px-4 md:px-6">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm text-yellow-700">
+                <strong>Debug Mode:</strong> If you're experiencing authentication issues, click the button to clear stored tokens.
+              </p>
+            </div>
+            <Button 
+              onClick={clearAuthState}
+              size="sm" 
+              variant="outline"
+              className="ml-4"
+            >
+              <RefreshCw className="h-4 w-4 mr-2" />
+              Clear Auth
+            </Button>
+          </div>
+        </div>
+      </div>
+
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-white to-muted/50 py-16 md:py-24">
         <div className="container px-4 md:px-6">

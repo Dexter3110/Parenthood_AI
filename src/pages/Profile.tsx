@@ -201,6 +201,14 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API_ENDPOINTS } from '@/config/api';
 import ProfileForm from '@/components/ProfileForm';
+import { authService } from '@/lib/auth-service';
+
+// Helper function to clear auth and redirect to home
+const clearAuthAndRedirect = (navigate: any) => {
+  console.log('Clearing authentication and redirecting to home');
+  authService.logout();
+  navigate('/', { replace: true });
+};
 
 const Profile = () => {
   const [profile, setProfile] = useState<any>(null);
@@ -210,12 +218,12 @@ const Profile = () => {
 
   useEffect(() => {
     console.log('Profile component mounted');
-    const token = localStorage.getItem('token');
+    const token = authService.getToken();
     console.log('Token exists:', !!token);
 
     if (!token) {
-      console.log('No token found, redirecting to login');
-      navigate('/login');
+      console.log('No token found, redirecting to home page');
+      clearAuthAndRedirect(navigate);
       return;
     }
 
@@ -249,11 +257,9 @@ const Profile = () => {
           headers: err.response?.headers
         });
 
-        if (err.response?.status === 401) {
-          console.log('Token expired or invalid, redirecting to login');
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
-          navigate('/login');
+        if (err.response?.status === 401 || err.response?.status === 403) {
+          console.log('Token expired, invalid, or forbidden. Clearing auth and redirecting to home');
+          clearAuthAndRedirect(navigate);
         } else {
           setError(err.response?.data?.message || 'Error fetching profile');
         }
