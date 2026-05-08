@@ -290,6 +290,13 @@ Implements modern design principles to build clean, accessible, and interactive 
 - 📧 Email: [afrazanwarhussain@gmail.com](mailto:afrazanwarhussain@gmail.com)
 - 💼 LinkedIn: [Connect with Afraz](https://www.linkedin.com/in/afraz-hussain-60614b29a/)
 
+
+
+### 👨‍💻 **Sahil Patle** - *AI and backend Developer*
+Implements modern design principles to build clean, accessible, and interactive user interfaces.
+- 📧 Email: [sahilpatle217@gmail.com](mailto:sahilpatle217@gmail.com)
+- 💼 LinkedIn: [Connect with Sahil]([www.linkedin.com/in/sahil-patle-01775128b])
+
 ---
 
 *We are passionate about creating technology that makes a real difference in the lives of parents and children with special needs.*
