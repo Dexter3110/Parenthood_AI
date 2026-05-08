@@ -293,7 +293,7 @@ Implements modern design principles to build clean, accessible, and interactive 
 
 
 ### 👨‍💻 **Sahil Patle** - *AI and backend Developer*
-Implements modern design principles to build clean, accessible, and interactive user interfaces.
+Efficiency in handling the new AI models coming in the market and look for Improvements.
 - 📧 Email: [sahilpatle217@gmail.com](mailto:sahilpatle217@gmail.com)
 - 💼 LinkedIn: [Connect with Sahil]([www.linkedin.com/in/sahil-patle-01775128b])
 
